@@ -1,0 +1,10 @@
+{
+  "title": "Telugu Alphabet Explorer",
+  "transliteration": "Transliteration",
+  "sampleWord": "Sample Word",
+  "samplePhrase": "Sample Phrase",
+  "englishTranslation": "English Translation",
+  "loading": "Loading...",
+  "noTranslation": "No translation found",
+  "error": "Error fetching meaning"
+}

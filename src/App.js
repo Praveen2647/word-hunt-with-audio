@@ -8,6 +8,9 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import CategoryCards from "./components/Header/CategoryCards";
 import ReadTextButton from "./components/ReadTextButton";
+import TeluguExplorer from "./components/Header/TeluguExplorer";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import i18n from "./i18n";
 
 function App() {
   const [word, setWord] = useState("");
@@ -26,12 +29,13 @@ function App() {
     }
   };
 
-  console.log(meanings);
+  // useEffect(() => {
+  //   dictionaryApi();
+  // }, [word, category]);
 
   useEffect(() => {
-    dictionaryApi();
-    // eslint-disable-next-line
-  }, [word, category]);
+  document.documentElement.lang = i18n.language;
+}, [i18n.language]);
 
   const PurpleSwitch = withStyles({
     switchBase: {
@@ -74,28 +78,32 @@ function App() {
             checked={LightTheme}
             onChange={() => setLightTheme(!LightTheme)}
           />
+          {/* <LanguageSwitcher /> */}
         </div>
-        <CategoryCards
+        {/* <CategoryCards
+          setWord={setWord}
+        /> */}
+        <TeluguExplorer
           setWord={setWord}
         />
-        <Header
+        {/* <Header
           setWord={setWord}
           category={category}
           setCategory={setCategory}
           word={word}
           setMeanings={setMeanings}
           LightTheme={LightTheme}
-        />
-        {meanings && (
+        /> */}
+        {/* {meanings && (
           <Definitions
             meanings={meanings}
             word={word}
             LightTheme={LightTheme}
             category={category}
           />
-        )}
+        )} */}
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

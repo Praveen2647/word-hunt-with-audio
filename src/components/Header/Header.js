@@ -3,7 +3,6 @@ import React from "react";
 import "./Header.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import countries from "../../data/category";
-import { debounce } from "lodash";
 
 const Header = ({
   category,

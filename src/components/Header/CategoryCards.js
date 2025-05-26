@@ -168,7 +168,7 @@ const CategoryCards = ({ setWord }) => {
   };
 
   const handleItemClick = (item) => {
-    setWord?.(item); // call parent if provided
+    setWord?.(item);
   };
 
   return (
