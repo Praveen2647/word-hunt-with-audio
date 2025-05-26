@@ -296,68 +296,68 @@ const TeluguExplorer = ({ setWord }) => {
     setWord?.(sample.word);
     fetchMeaning(sample.phrase);
 
-    speakText(letter, sample.phrase);
+    // speakText(letter, sample.phrase);
 
     // const utterance = new SpeechSynthesisUtterance(letter);
     // utterance.lang = "en-US";
     // speechSynthesis.speak(utterance);
   };
 
-  const speakText = (text, phrase) => {
-    speakTelugu(text)
-    // if ("speechSynthesis" in window) {
-    //   window.speechSynthesis.cancel();
-    //   const utterance = new SpeechSynthesisUtterance(text);
-    //   utterance.lang = "en-US";
-    //   window.speechSynthesis.speak(utterance);
-    // } else {
-    //   alert("Speech synthesis not supported in your browser.");
-    // }
-    setTimeout(() => {
-    speakTelugu(phrase);
-  }, 1500);
-  };
+  // const speakText = (text, phrase) => {
+  //   speakTelugu(text)
+  //   if ("speechSynthesis" in window) {
+  //     window.speechSynthesis.cancel();
+  //     const utterance = new SpeechSynthesisUtterance(text);
+  //     utterance.lang = "en-US";
+  //     window.speechSynthesis.speak(utterance);
+  //   } else {
+  //     alert("Speech synthesis not supported in your browser.");
+  //   }
+  //   setTimeout(() => {
+  //   speakTelugu(phrase);
+  // }, 1500);
+  // };
 
-  const speakTelugu = async(text) => {
-  const API_KEY = "AIzaSyDPIOIhBkm_5CjJIcFoIibVf_sfmNtLY8g";
-  const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`;
+//   const speakTelugu = async(text) => {
+//   const API_KEY = "";
+//   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`;
 
-  const payload = {
-    input: { text },
-    voice: {
-      languageCode: "te-IN",
-      name: "te-IN-Standard-A"
-    },
-    audioConfig: {
-      audioEncoding: "MP3",
-      speakingRate: 0.8
-    }
-  };
+//   const payload = {
+//     input: { text },
+//     voice: {
+//       languageCode: "te-IN",
+//       name: "te-IN-Standard-A"
+//     },
+//     audioConfig: {
+//       audioEncoding: "MP3",
+//       speakingRate: 0.8
+//     }
+//   };
 
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
+//   try {
+//     const res = await fetch(url, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify(payload)
+//     });
 
-    const data = await res.json();
+//     const data = await res.json();
 
-    if (data.audioContent) {
-      const audioSrc = `data:audio/mp3;base64,${data.audioContent}`;
-      const audio = new Audio(audioSrc);
-      audio.play();
-    } else {
-      console.error("No audio content:", data);
-      alert("Failed to synthesize speech.");
-    }
-  } catch (err) {
-    console.error("Error calling Google TTS:", err);
-    alert("TTS error. See console.");
-  }
-}
+//     if (data.audioContent) {
+//       const audioSrc = `data:audio/mp3;base64,${data.audioContent}`;
+//       const audio = new Audio(audioSrc);
+//       audio.play();
+//     } else {
+//       console.error("No audio content:", data);
+//       alert("Failed to synthesize speech.");
+//     }
+//   } catch (err) {
+//     console.error("Error calling Google TTS:", err);
+//     alert("TTS error. See console.");
+//   }
+// }
 
 
   return (
